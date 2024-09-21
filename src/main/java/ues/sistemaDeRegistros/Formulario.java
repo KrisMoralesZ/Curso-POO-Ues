@@ -9,6 +9,7 @@ public class Formulario extends JFrame {
     private JTextField idTextField, descriptionTextField, categoryTextField, amountTextField, costTextField, priceTextField, stateTextField;
     private JComboBox categoryComboBox;
     private JCheckBox stateCheckBox;
+    private JTextArea textArea;
     private JButton saveButton, cancelButton;
 
     public Formulario() {
@@ -63,6 +64,16 @@ public class Formulario extends JFrame {
         centralPanel.add(rightCentralPanel);
 
         add(centralPanel, BorderLayout.CENTER);
+
+        JPanel verticalLayoutPanel = new JPanel();
+        verticalLayoutPanel.setLayout(new BoxLayout(verticalLayoutPanel, BoxLayout.Y_AXIS));
+
+        textArea = new JTextArea();
+
+        verticalLayoutPanel.add(centralPanel);
+        verticalLayoutPanel.add(textArea);
+
+        add(verticalLayoutPanel);
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
