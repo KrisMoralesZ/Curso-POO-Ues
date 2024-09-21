@@ -11,50 +11,74 @@ public class Formulario extends JFrame {
 
     public Formulario() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 400);
+        setSize(800, 400);
         setTitle("Productos");
+        setLayout(new BorderLayout(10, 10));
 
-        JPanel panel = new JPanel(new FlowLayout());
+        JPanel leftCentralPanel = new JPanel(new GridLayout(4,2));
 
         idLabel = new JLabel("ID");
         descriptionLabel = new JLabel("Description");
         categoryLabel = new JLabel("Category");
         amountLabel = new JLabel("Amount");
+
+        idTextField = new JTextField();
+        descriptionTextField = new JTextField();
+        categoryTextField = new JTextField();
+        amountTextField = new JTextField();
+
+        leftCentralPanel.add(idLabel);
+        leftCentralPanel.add(idTextField);
+        leftCentralPanel.add(descriptionLabel);
+        leftCentralPanel.add(descriptionTextField);
+        leftCentralPanel.add(categoryLabel);
+        leftCentralPanel.add(categoryTextField);
+        leftCentralPanel.add(amountLabel);
+        leftCentralPanel.add(amountTextField);
+
+
+        JPanel rightCentralPanel = new JPanel(new GridLayout(4,2));
+
         costLabel = new JLabel("Cost");
         priceLabel = new JLabel("Price");
         stateLabel = new JLabel("State");
 
-        idTextField = new JTextField(10);
-        descriptionTextField = new JTextField(10);
-        categoryTextField = new JTextField(10);
-        amountTextField = new JTextField(10);
-        costTextField = new JTextField(10);
-        priceTextField = new JTextField(10);
-        stateTextField = new JTextField(10);
+        costTextField = new JTextField();
+        priceTextField = new JTextField();
+        stateTextField = new JTextField();
+
+        rightCentralPanel.add(costLabel);
+        rightCentralPanel.add(costTextField);
+        rightCentralPanel.add(priceLabel);
+        rightCentralPanel.add(priceTextField);
+        rightCentralPanel.add(stateLabel);
+        rightCentralPanel.add(stateTextField);
+
+
+        JPanel centralPanel = new JPanel(new GridLayout(1, 2, 10, 10)); // 3 filas y 2 columnas
+
+        centralPanel.add(leftCentralPanel);
+        centralPanel.add(rightCentralPanel);
+
+        add(centralPanel, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         saveButton = new JButton("Save");
         cancelButton = new JButton("Cancel");
 
-        panel.add(idLabel);
-        panel.add(idTextField);
-        panel.add(descriptionLabel);
-        panel.add(descriptionTextField);
-        panel.add(categoryLabel);
-        panel.add(categoryTextField);
-        panel.add(amountLabel);
-        panel.add(amountTextField);
-        panel.add(costLabel);
-        panel.add(costTextField);
-        panel.add(priceLabel);
-        panel.add(priceTextField);
-        panel.add(stateLabel);
-        panel.add(stateTextField);
-        panel.add(saveButton);
-        panel.add(cancelButton);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(cancelButton);
 
-        add(panel);
+        add(buttonPanel, BorderLayout.SOUTH);
+
+        JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel titleLabel = new JLabel("Datos del producto");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 12));
+        titlePanel.add(titleLabel);
+
+        add(titlePanel, BorderLayout.NORTH);
 
         setVisible(true);
     }
 }
-
