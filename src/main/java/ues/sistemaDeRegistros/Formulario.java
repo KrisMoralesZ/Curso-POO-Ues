@@ -7,6 +7,8 @@ public class Formulario extends JFrame {
 
     private JLabel idLabel, descriptionLabel, categoryLabel, amountLabel, costLabel, priceLabel, stateLabel;
     private JTextField idTextField, descriptionTextField, categoryTextField, amountTextField, costTextField, priceTextField, stateTextField;
+    private JComboBox categoryComboBox;
+    private JCheckBox stateCheckBox;
     private JButton saveButton, cancelButton;
 
     public Formulario() {
@@ -24,7 +26,7 @@ public class Formulario extends JFrame {
 
         idTextField = new JTextField();
         descriptionTextField = new JTextField();
-        categoryTextField = new JTextField();
+        categoryComboBox = new JComboBox();
         amountTextField = new JTextField();
 
         leftCentralPanel.add(idLabel);
@@ -32,7 +34,7 @@ public class Formulario extends JFrame {
         leftCentralPanel.add(descriptionLabel);
         leftCentralPanel.add(descriptionTextField);
         leftCentralPanel.add(categoryLabel);
-        leftCentralPanel.add(categoryTextField);
+        leftCentralPanel.add(categoryComboBox);
         leftCentralPanel.add(amountLabel);
         leftCentralPanel.add(amountTextField);
 
@@ -45,14 +47,14 @@ public class Formulario extends JFrame {
 
         costTextField = new JTextField();
         priceTextField = new JTextField();
-        stateTextField = new JTextField();
+        stateCheckBox = new JCheckBox();
 
         rightCentralPanel.add(costLabel);
         rightCentralPanel.add(costTextField);
         rightCentralPanel.add(priceLabel);
         rightCentralPanel.add(priceTextField);
         rightCentralPanel.add(stateLabel);
-        rightCentralPanel.add(stateTextField);
+        rightCentralPanel.add(stateCheckBox);
 
 
         JPanel centralPanel = new JPanel(new GridLayout(1, 2, 10, 10)); // 3 filas y 2 columnas
