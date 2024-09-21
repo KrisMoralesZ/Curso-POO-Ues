@@ -6,7 +6,7 @@ import java.awt.*;
 public class Formulario extends JFrame {
 
     private JLabel idLabel, descriptionLabel, categoryLabel, amountLabel, costLabel, priceLabel, stateLabel;
-    private JTextField idTextField, descriptionTextField, categoryTextField, amountTextField, costTextField, priceTextField, stateTextField;
+    private JTextField idTextField, descriptionTextField, amountTextField, costTextField, priceTextField;
     private JComboBox categoryComboBox;
     private JCheckBox stateCheckBox;
     private JTextArea textArea;
@@ -58,7 +58,7 @@ public class Formulario extends JFrame {
         rightCentralPanel.add(stateCheckBox);
 
 
-        JPanel centralPanel = new JPanel(new GridLayout(1, 2, 10, 10)); // 3 filas y 2 columnas
+        JPanel centralPanel = new JPanel(new GridLayout(1, 2, 10, 10));
 
         centralPanel.add(leftCentralPanel);
         centralPanel.add(rightCentralPanel);
