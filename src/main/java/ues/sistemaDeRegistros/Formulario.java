@@ -2,8 +2,10 @@ package ues.sistemaDeRegistros;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Formulario extends JFrame {
+public class Formulario extends JFrame implements ActionListener {
 
     private JLabel idLabel, descriptionLabel, categoryLabel, amountLabel, costLabel, priceLabel, stateLabel;
     private JTextField idTextField, descriptionTextField, amountTextField, costTextField, priceTextField;
@@ -80,6 +82,9 @@ public class Formulario extends JFrame {
         saveButton = new JButton("Save");
         cancelButton = new JButton("Cancel");
 
+        saveButton.addActionListener(this);
+        cancelButton.addActionListener(this);
+
         buttonPanel.add(saveButton);
         buttonPanel.add(cancelButton);
 
@@ -93,5 +98,28 @@ public class Formulario extends JFrame {
         add(titlePanel, BorderLayout.NORTH);
 
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == saveButton) {
+            String id = idTextField.getText();
+            String description = descriptionTextField.getText();
+            // String category = categoryComboBox.getSelectedItem().toString();
+            String amount = amountTextField.getText();
+            String cost = costTextField.getText();
+            String price = priceTextField.getText();
+            String state = stateCheckBox.isSelected() ? "Activo" : "Inactivo";
+
+            if(id.isEmpty() || description.isEmpty() || amount.isEmpty() || cost.isEmpty() || price.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debes ingresar los campos");
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no se ha implementado la Accion Guardar");
+            }
+        }
+
+        if (e.getSource() == cancelButton) {
+            JOptionPane.showMessageDialog(this, "Estas seguro de Cancelar");
+        }
     }
 }
